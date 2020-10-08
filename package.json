@@ -1,0 +1,23 @@
+{
+  "name": "timer",
+  "version": "1.0.0",
+  "description": "A simple timer",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinzelinsky/timer.git"
+  },
+  "author": "Justin Zelinsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justinzelinsky/timer/issues"
+  },
+  "homepage": "https://github.com/justinzelinsky/timer#readme",
+  "devDependencies": {
+    "serve": "^11.3.2"
+  }
+}
