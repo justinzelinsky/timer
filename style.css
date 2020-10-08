@@ -1,0 +1,36 @@
+body {
+  background-color: #000000;
+}
+
+.timer {
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timer > .current-time {
+  font-size: 96px;
+  text-align: center;
+}
+
+.timer > .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.timer > .buttons > button {
+  background-color: #0033cc;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 32px;
+  width: 300px;
+}
+
+.timer > .buttons > button:hover {
+  cursor: pointer;
+}
