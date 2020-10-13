@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const timer = document.querySelector('div.timer > div.current-time');
+  const timer = document.querySelector('main.timer > div.current-time');
   const startButton = document.querySelector(
-    'div.timer > div.buttons > button.start'
+    'main.timer > div.buttons > button.start'
   );
   const resetButton = document.querySelector(
-    'div.timer > div.buttons > button.reset'
+    'main.timer > div.buttons > button.reset'
   );
 
   const ONE_SECOND = 1000;
@@ -18,39 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
   let nextTime;
   let timeDifference;
   let intervalId;
-
-  function doStartPause() {
-    if (isRunning) {
-      clearInterval(intervalId);
-      pauseTime = timeDifference;
-      startButton.innerText = 'Start';
-    } else {
-      startTime = new Date().getTime();
-      intervalId = setInterval(updateTime, 10);
-      startButton.innerText = 'Pause';
-    }
-    isRunning = !isRunning;
-  }
-
-  function doReset() {
-    clearInterval(intervalId);
-    isRunning = false;
-    startTime = 0;
-    pauseTime = 0;
-    timeDifference = 0;
-    timer.innerText = '00:00:00:000';
-    startButton.innerText = 'Start';
-  }
-
-  startButton.addEventListener('click', doStartPause);
-  resetButton.addEventListener('click', doReset);
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 's') {
-      doStartPause();
-    } else if (event.key === 'r') {
-      doReset();
-    }
-  });
 
   function updateTime() {
     nextTime = new Date().getTime();
@@ -78,4 +45,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
     timer.innerText = `${hours}:${minutes}:${seconds}:${milliseconds}`;
   }
+
+  function doStartPause() {
+    if (isRunning) {
+      clearInterval(intervalId);
+      pauseTime = timeDifference;
+      startButton.innerText = 'Start';
+    } else {
+      startTime = new Date().getTime();
+      intervalId = setInterval(updateTime, 10);
+      startButton.innerText = 'Pause';
+    }
+    isRunning = !isRunning;
+  }
+
+  function doReset() {
+    clearInterval(intervalId);
+    isRunning = false;
+    startTime = 0;
+    pauseTime = 0;
+    timeDifference = 0;
+    timer.innerText = '00:00:00:000';
+    startButton.innerText = 'Start';
+  }
+
+  startButton.addEventListener('click', doStartPause);
+  resetButton.addEventListener('click', doReset);
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 's') {
+      doStartPause();
+    } else if (event.key === 'r') {
+      doReset();
+    }
+  });
 });

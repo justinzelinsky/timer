@@ -7,13 +7,13 @@ body {
   font-family: 'Courier New', Courier, monospace;
   left: 50%;
   position: fixed;
+  text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
 .timer > .current-time {
   font-size: 96px;
-  text-align: center;
 }
 
 .timer > .buttons {
@@ -33,4 +33,27 @@ body {
 
 .timer > .buttons > button:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 376px) {
+  .timer {
+    position: relative;
+    transform: none;
+    top: 0;
+    left: 0;
+  }
+
+  .timer > .current-time {
+    font-size: 48px;
+  }
+
+  .timer > .buttons {
+    display: block;
+  }
+
+  .timer > .buttons > button {
+    font-size: 22px;
+    margin-top: 10px;
+    width: 100%;
+  }
 }
